@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "credxai-utilities-prettyprint"
+version = "0.0.1"
+description = "Pretty-prints a Python dict object into a JSON-formatted string"
+readme = "README.md"
+# Most libraries we build will be used in AWS GlueJobs
+# Python shell jobs in AWS Glue run scripts compatible with Python 3.9
+# (https://docs.aws.amazon.com/glue/latest/dg/add-job-python.html)
+requires-python = ">=3.9.0"
+authors = [
+    {name = "Mauricio Lomelin", email = "mauricio.lomelin@credx.ai"}
+]
+dependencies = [
+]
+
+# Include in the distribution package configuration (*.cfg) files
+# in the /src directory with settings used by package modules
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.cfg"]
